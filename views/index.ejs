@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* width: 60vh; */
+            height: 100vh;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            /* Dark button background */
+            color: #fff;
+            /* White text */
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
         table {
             /* width: 100%; */
             border-collapse: separate;
@@ -38,31 +61,34 @@
 </head>
 
 <body>
-    <button type="button" onclick="window.location.href='/newMessage';">add message</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>User</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <% messages.forEach((message,index)=> {
-            const time = new Date(message.added).toTimeString().split(' ')[0] %>
-            <tr>
-                <td>
-                    <%= time %>
-                </td>
-                <td>
-                    <%= message.user %>
-                </td>
-                <td>
-                    <%= message.text %>
-                </td>
-                <td><button onclick="window.location.href='/messageDetails/<%= index %>';"">details</button></td>
-            </tr>
-            <% }); %>
-    </table>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>User</th>
+                    <th>Message</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <% messages.forEach((message,index)=> {
+                const time = new Date(message.added).toTimeString().split(' ')[0] %>
+                <tr>
+                    <td>
+                        <%= time %>
+                    </td>
+                    <td>
+                        <%= message.user %>
+                    </td>
+                    <td>
+                        <%= message.text %>
+                    </td>
+                    <td><button onclick="window.location.href='/messageDetails/<%= index %>';"">link</button></td>
+                </tr>
+                <% }); %>
+        </table>
+        <button type=" button" onclick="window.location.href='/newMessage';">add message</button>
+    </div>
 </body>
 
 </html>

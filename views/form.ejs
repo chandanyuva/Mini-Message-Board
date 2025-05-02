@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Form</title>
+</head>
+
+<body>
+
+    <h1>Submit a Message</h1>
+
+    <form action="/new" method="post">
+        <!-- Author's Name Input -->
+        <label for="author">Author's Name:</label>
+        <input type="text" id="author" name="author" required>
+
+        <!-- Message Text Input -->
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+        <button type="button" onclick="window.location.href='/';">cancel</button>
+    </form>
+
+</body>
+
+</html>

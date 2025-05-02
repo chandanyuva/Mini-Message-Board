@@ -4,14 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Home</title>
+    <style>
+        table {
+            /* width: 100%; */
+            border-collapse: separate;
+            border-spacing: 2px;
+            /* Adds space between columns */
+            font-family: Arial, sans-serif;
+        }
+
+        th,
+        td {
+            padding: 2px 4px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        td {
+            background-color: #fff;
+            color: #555;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+            /* Light stripe for even rows */
+        }
+    </style>
 </head>
 
 <body>
-    <ul>
-        <% messages.forEach((message))=>{ %>
-            <li>time:<%=message.added%} | User: <%=message.user%}=message: <%=message.text%} </li>
-                    <% })%} </ul>
+    <button type="button" onclick="window.location.href='/new';">add message</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>User</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <% messages.forEach((message,index)=> {
+            const time = new Date(message.added).toTimeString().split(' ')[0] %>
+            <tr>
+                <td>
+                    <%= time %>
+                </td>
+                <td>
+                    <%= message.user %>
+                </td>
+                <td>
+                    <%= message.text %>
+                </td>
+                <td><button onclick="window.location.href='/messageDetails/<%= index %>';"">details</button></td>
+            </tr>
+            <% }); %>
+    </table>
 </body>
 
 </html>

@@ -39,6 +39,6 @@ app.use("/messageDetails", messageDetailsRouter);
 const PORT = process.env.PORT || 3000;
 // const HOST = "127.0.0.1";
 
-app.listen(PORT, HOST, () => {
-    console.log(`Running Server on: http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Running Server on PORT:${PORT}`);
 });

@@ -37,8 +37,8 @@ app.use("/newMessage", newMessageRouter);
 app.use("/messageDetails", messageDetailsRouter);
 
 const PORT = process.env.PORT || 3000;
-// const HOST = "127.0.0.1";
+const HOST = "0.0.0.0";
 
-app.listen(PORT, () => {
+app.listen(PORT,HOST, () => {
     console.log(`Running Server on PORT:${PORT}`);
 });
